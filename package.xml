@@ -21,7 +21,7 @@
 <![CDATA[
 * Fixed bug #1365: _getOutput() table not XHTML complaint.
 
-* Fixed bug #2727: Output ist not valid XHTML. Patch by Helgi Þormar <helgi@trance.is>.
+* Fixed bug #2727: Output ist not valid XHTML. Patch by Helgi &THORN;ormar <helgi@trance.is>.
 
 * Fixed bug #2295: Timer.php: undefined index "Stop" on line 208.
 ]]>
