@@ -89,7 +89,7 @@ class Benchmark_Iterate extends Benchmark_Timer {
           $objectmethod = $function_name[1];
         }
 
-        // If we're calling a method on an object use call_user_method
+        // If we're calling a method on an object use call_user_func
         if (strstr($function_name, '->')) {
             $function_name = explode('->', $function_name);
             $objectname = $function_name[0];
