@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
-<package>
+<!DOCTYPE package SYSTEM "../package.dtd">
+<package version="1.0">
  <name>Benchmark</name>
  <summary>Framework to benchmark PHP scripts or function calls.</summary>
  <description>
   Framework to benchmark PHP scripts or function calls.
  </description>
- <maintainer>
-  <user>sebastian</user>
-  <name>Sebastian Bergmann</name>
-  <email>sb@sebastian-bergmann.de</email>
- </maintainer>
+ <maintainers>
+  <maintainer>
+   <user>sebastian</user>
+   <name>Sebastian Bergmann</name>
+   <email>sb@sebastian-bergmann.de</email>
+  </maintainer>
+ </maintainers>
  <release>
   <version>1.1</version>
   <date>2002-01-26</date>
