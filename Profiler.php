@@ -29,6 +29,7 @@ require_once 'PEAR.php';
  * $profiler = new Benchmark_Profiler(TRUE);
  *
  * function myFunction() {
+ *     global $profiler;
  *     $profiler->enterSection('myFunction');
  *     //do something
  *     $profiler->leaveSection('myFunction');
@@ -45,11 +46,12 @@ require_once 'PEAR.php';
  *
  * <code>
  * <?php
- * require_once 'Benchmark/Timer.php';
+ * require_once 'Benchmark/Profiler.php';
  *
  * $profiler = new Benchmark_Profiler();
  *
  * function myFunction() {
+ *     global $profiler;
  *     $profiler->enterSection('myFunction');
  *     //do something
  *     $profiler->leaveSection('myFunction');
@@ -158,7 +160,7 @@ class Benchmark_Profiler extends PEAR {
      * @access private
      */
     function _Benchmark_Profiler() {
-        if (isset($this->auto)) {
+        if (isset($this->auto) && $this->auto) {
             $this->stop();
             $this->display();
         }
