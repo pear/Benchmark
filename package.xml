@@ -1,39 +1,62 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE package SYSTEM "../package.dtd">
 <package version="1.0">
- <name>Benchmark</name>
- <summary>Framework to benchmark PHP scripts or function calls.</summary>
- <description>
-  Framework to benchmark PHP scripts or function calls.
- </description>
- <maintainers>
-  <maintainer>
-   <user>sebastian</user>
-   <name>Sebastian Bergmann</name>
-   <email>sb@sebastian-bergmann.de</email>
-  </maintainer>
- </maintainers>
- <license>PHP License</license>
- <release>
-  <version>1.1</version>
-  <date>2002-01-26</date>
-  <state>stable</state>
-  <notes>
-   - Added getOutput() to print the results in human readable format and display() to show it.
-       This functions will automatically detect the environment to select HTML or text output
-   - Added a new param $auto to constructor. When true is passed the results will be output
-       automatically at the end of the script execution.
-   (contribution by Ludovico Magnocavallo)
-  </notes>
-  <filelist>
-   <dir name="/" baseinstalldir="Benchmark">
-     <file role="php" name="Timer.php"/>
-     <file role="php" name="Iterate.php"/>
-     <file role="php" name="Profiler.php"/>
-     <dir name="doc" role="doc">
-       <file>timer_example.php</file>
-     </dir>
-   </dir>
-  </filelist>
- </release>
+  <name>Benchmark</name>
+  <summary>
+    Framework to benchmark PHP scripts or function calls.
+  </summary>
+  <description>
+    Framework to benchmark PHP scripts or function calls.
+  </description>
+  <maintainers>
+    <maintainer>
+      <user>sebastian</user>
+      <role>lead</role>
+      <name>Sebastian Bergmann</name>
+      <email>sb@sebastian-bergmann.de</email>
+    </maintainer>
+  </maintainers>
+  <license>PHP License</license>
+  <release>
+    <version>1.2</version>
+    <date>2002-09-25</date>
+    <state>stable</state>
+    <notes>
++ Added Profiler class.
+
+  (Contribution by Matthias Englert)
+    </notes>
+    <filelist>
+      <dir name="/" baseinstalldir="Benchmark">
+        <dir name="doc" role="doc">
+          <file>timer_example.php</file>
+        </dir>
+
+        <file role="php" name="Timer.php"/>
+        <file role="php" name="Iterate.php"/>
+        <file role="php" name="Profiler.php"/>
+      </dir>
+    </filelist>
+  </release>
+  <changelog>
+    <release>
+      <version>1.1</version>
+      <date>2002-01-26</date>
+      <state>stable</state>
+      <notes>
++ Added getOutput() to print the results in human readable
+  format and display() to show it.
+
+  This functions will automatically detect the environment
+  to select HTML or text output.
+
++ Added a new param $auto to constructor.
+
+  When true is passed, the results will be output
+  automatically at the end of the script execution.
+
+  (Contribution by Ludovico Magnocavallo)
+      </notes>
+    </release>
+  </changelog>
 </package>
