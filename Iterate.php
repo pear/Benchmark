@@ -99,7 +99,7 @@ class Benchmark_Iterate extends Benchmark_Timer {
 
             for ($i = 1; $i <= $iterations; $i++) {
                 $this->setMarker('start_' . $i);
-                call_user_method_array($function_name[1], ${$objectname}, $arguments);
+                call_user_func_array(array(${$objectname}, $function_name[1]), $arguments);
                 $this->setMarker('end_' . $i);
             }
             return(0);
