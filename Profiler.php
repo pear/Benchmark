@@ -182,16 +182,18 @@ class Benchmark_Profiler extends PEAR {
             $calls_str = "";
             if ($this->_calls[$name]) {
                 foreach($this->_calls[$name] as $key => $val) {
-                    if ($calls_str)
+                    if ($calls_str) {
                         $calls_str .= ", ";
+		    }
                     $calls_str .= "$key ($val)";
                 }
             }
             $callers_str = "";
             if ($this->_callers[$name]) {
                 foreach($this->_callers[$name] as $key => $val) {
-                    if ($callers_str)
+                    if ($callers_str) {
                         $callers_str .= ", ";
+		    }
                     $callers_str .= "$key ($val)";
                 }
             }
