@@ -32,7 +32,7 @@
  *     function myFunction() {
  *         $profiler->enterSection('myFunction');
  *         //do something
- *         $prfiler->leaveSection('myFunction');
+ *         $profiler->leaveSection('myFunction');
  *         return;
  *     }
  *     //do something
@@ -46,7 +46,7 @@
  *     function myFunction() {
  *         $profiler->enterSection('myFunction');
  *         //do something
- *         $prfiler->leaveSection('myFunction');
+ *         $profiler->leaveSection('myFunction');
  *         return;
  *     }
  *     $profiler->start();
