@@ -122,6 +122,7 @@ class Benchmark_Timer extends PEAR
         }
         $total = $this->TimeElapsed();
         $result = $this->getProfiling();
+        $dashes = "";
         if ($http) {
             $out = "<table border=1>\n";
             $out .= '<tr><td>&nbsp;</td><td align="center"><b>time index</b></td><td align="center"><b>ex time</b></td><td align="center"><b>%</b></td></tr>'."\n";
