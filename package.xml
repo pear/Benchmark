@@ -18,7 +18,7 @@
   </notes>
  </release>
  <filelist>
-  <dir name="/">
+  <dir name="/" baseinstalldir="Benchmark">
     <file role="php">Timer.php</file>
     <file role="php">Iterate.php</file>
   </dir>
