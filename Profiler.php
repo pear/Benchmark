@@ -3,7 +3,7 @@
 // +----------------------------------------------------------------------+
 // | PEAR :: Benchmark                                                    |
 // +----------------------------------------------------------------------+
-// | Copyright (c) 2002-2003 Matthias Englert <Matthias.Englert@gmx.de>.       |
+// | Copyright (c) 2002-2003 Matthias Englert <Matthias.Englert@gmx.de>.  |
 // +----------------------------------------------------------------------+
 // | This source file is subject to version 3.00 of the PHP License,      |
 // | that is available at http://www.php.net/license/3_0.txt.             |
