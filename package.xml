@@ -2,12 +2,8 @@
 <!DOCTYPE package SYSTEM "http://pear.php.net/dtd/package-1.0">
 <package version="1.0">
   <name>Benchmark</name>
-  <summary>
-    Framework to benchmark PHP scripts or function calls.
-  </summary>
-  <description>
-    Framework to benchmark PHP scripts or function calls.
-  </description>
+  <summary>Framework to benchmark PHP scripts or function calls.</summary>
+  <description>Framework to benchmark PHP scripts or function calls.</description>
   <maintainers>
     <maintainer>
       <user>sebastian</user>
@@ -18,7 +14,7 @@
   </maintainers>
   <license>PHP License</license>
   <release>
-    <version>1.2.2dev</version>
+    <version>1.3.0dev</version>
     <date>200Y-MM-DD</date>
     <state>devel</state>
     <notes>
@@ -26,6 +22,8 @@
 * Fixed bug #1365: _getOutput() table not XHTML complaint.
 
 * Fixed bug #2727: Output ist not valid XHTML. Patch by Helgi Þormar <helgi@trance.is>.
+
+* Fixed bug #2295: Timer.php: undefined index "Stop" on line 208.
 ]]>
     </notes>
     <filelist>
@@ -39,6 +37,9 @@
         <file role="php" name="Profiler.php"/>
       </dir>
     </filelist>
+    <deps>
+      <dep type="ext" rel="has" optional="yes">bcmath</dep>
+    </deps>
   </release>
   <changelog>
     <release>
@@ -48,40 +49,27 @@
       <notes>
 + Profiler: Added calculation of netto execution time of sections.
 
-+ Profiler: Optional output to an array instead of screen.
-
-            (Contributed by Jean-Marc Fontaine)
++ Profiler: Optional output to an array instead of screen. (Contributed by Jean-Marc Fontaine)
 
 * Profiler: Fixed typos.
       </notes>
     </release>
     <release>
-      <version>1.2</version>
+      <version>1.2.0</version>
       <date>2002-09-25</date>
       <state>stable</state>
       <notes>
-+ Added Profiler class.
-
-  (Contribution by Matthias Englert)
++ Added Profiler class. (Contribution by Matthias Englert)
       </notes>
     </release>
     <release>
-      <version>1.1</version>
+      <version>1.1.0</version>
       <date>2002-01-26</date>
       <state>stable</state>
       <notes>
-+ Added getOutput() to print the results in human readable
-  format and display() to show it.
++ Added getOutput() to print the results in human readable format and display() to show it. This functions will automatically detect the environment to select HTML or text output.
 
-  This functions will automatically detect the environment
-  to select HTML or text output.
-
-+ Added a new param $auto to constructor.
-
-  When true is passed, the results will be output
-  automatically at the end of the script execution.
-
-  (Contribution by Ludovico Magnocavallo)
++ Added a new parameter $auto to constructor. When TRUE is passed, the results will be output automatically at the end of the script execution. (Contribution by Ludovico Magnocavallo)
       </notes>
     </release>
   </changelog>

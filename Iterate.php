@@ -18,78 +18,87 @@
 require_once 'Benchmark/Timer.php';
 
 /**
-* Benchmark::Benchmark_Iterate
-* 
-* Purpose:
-* 
-*     Benchmarking
-* 
-* Example:
-*   a) 
-*     require_once 'Benchmark/Iterate.php';
-*     $benchmark = new Benchmark_Iterate;
-* 
-*     function foo($string) {
-*         print $string . '<br>';
-*     }
-* 
-*     $benchmark->run(100, 'foo', 'test');
-*     $result = $benchmark->get();
-*
-*   b)
-*     require_once 'Benchmark/Iterate.php';
-*     $benchmark = new Benchmark_Iterate;
-* 
-*     class myclass{
-*
-*       function foo($string) {
-*             print $string . '<br>';
-*       }
-*     }
-* 
-*     $benchmark->run(100, 'myclass::foo', 'test');
-*     $result = $benchmark->get();
-*
-*   c)
-*     require_once 'Benchmark/Iterate.php';
-*     $benchmark = new Benchmark_Iterate;
-* 
-*     class myclass{
-*
-*       function foo($string) {
-*             print $string . '<br>';
-*       }
-*     }
-*
-*     $myobj = new myclass();
-* 
-*     $benchmark->run(100, 'myobj->foo', 'test');
-*     $result = $benchmark->get();
-*
-* @author   Sebastian Bergmann <sb@sebastian-bergmann.de>
-* @version  $Revision$
-* @access   public
-*/
-
+ * Provides timing and profiling information.
+ *
+ * Example 1
+ *
+ * <code>
+ * <?php
+ * require_once 'Benchmark/Iterate.php';
+ *
+ * $benchmark = new Benchmark_Iterate;
+ *
+ * function foo($string) {
+ *     print $string . '<br>';
+ * }
+ *
+ * $benchmark->run(100, 'foo', 'test');
+ * $result = $benchmark->get();
+ * ?>
+ * </code>
+ *
+ * Example 2
+ *
+ * <code>
+ * <?php
+ * require_once 'Benchmark/Iterate.php';
+ *
+ * $benchmark = new Benchmark_Iterate;
+ *
+ * class MyClass {
+ *     function foo($string) {
+ *         print $string . '<br>';
+ *     }
+ * }
+ *
+ * $benchmark->run(100, 'myclass::foo', 'test');
+ * $result = $benchmark->get();
+ * ?>
+ * </code>
+ *
+ * Example 3
+ *
+ * <code>
+ * <?php
+ * require_once 'Benchmark/Iterate.php';
+ *
+ * $benchmark = new Benchmark_Iterate;
+ *
+ * class MyClass {
+ *     function foo($string) {
+ *         print $string . '<br>';
+ *     }
+ * }
+ *
+ * $o = new MyClass();
+ *
+ * $benchmark->run(100, 'o->foo', 'test');
+ * $result = $benchmark->get();
+ * ?>
+ * </code>
+ *
+ * @author    Sebastian Bergmann <sb@sebastian-bergmann.de>
+ * @copyright Copyright &copy; 2002-2004 Sebastian Bergmann <sb@sebastian-bergmann.de>
+ * @license   http://www.php.net/license/3_0.txt The PHP License, Version 3.0
+ * @category  Benchmarking
+ * @package   Benchmark
+ */
 class Benchmark_Iterate extends Benchmark_Timer {
     /**
-    * Benchmarks a function.
-    *
-    * @access public
-    */
-
+     * Benchmarks a function or method.
+     *
+     * @access public
+     */
     function run() {
         $arguments     = func_get_args();
-
         $iterations    = array_shift($arguments);
         $function_name = array_shift($arguments);
-    
+
         if (strstr($function_name, '::')) {
           $function_name = explode('::', $function_name);
           $objectmethod = $function_name[1];
         }
 
-        // If we're calling a method on an object use call_user_func
         if (strstr($function_name, '->')) {
             $function_name = explode('->', $function_name);
             $objectname = $function_name[0];
@@ -102,6 +111,7 @@ class Benchmark_Iterate extends Benchmark_Timer {
                 call_user_func_array(array(${$objectname}, $function_name[1]), $arguments);
                 $this->setMarker('end_' . $i);
             }
+
             return(0);
         }
 
@@ -113,16 +123,15 @@ class Benchmark_Iterate extends Benchmark_Timer {
     }
 
     /**
-    * Returns benchmark result.
-    *
-    * $result[x           ] = execution time of iteration x
-    * $result['mean'      ] = mean execution time
-    * $result['iterations'] = number of iterations
-    *
-    * @return array $result
-    * @access public
-    */
-
+     * Returns benchmark result.
+     *
+     * $result[x           ] = execution time of iteration x
+     * $result['mean'      ] = mean execution time
+     * $result['iterations'] = number of iterations
+     *
+     * @return array
+     * @access public
+     */
     function get() {
         $result = array();
         $total  = 0;
@@ -137,7 +146,7 @@ class Benchmark_Iterate extends Benchmark_Timer {
             } else {
                 $total = $total + $time;
             }
-            
+
             $result[$i] = $time;
         }
 
