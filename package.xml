@@ -11,16 +11,24 @@
   <email>sb@sebastian-bergmann.de</email>
  </maintainer>
  <release>
-  <version>1.0</version>
-  <date>2002-01-20</date>
+  <version>1.1</version>
+  <date>2002-01-26</date>
+  <state>stable</state>
   <notes>
-   This is the initial independent PEAR release.
+   - Added getOutput() to print the results in human readable format and display() to show it.
+       This functions will automatically detect the environment to select HTML or text output
+   - Added a new param $auto to constructor. When true is passed the results will be output
+       automatically at the end of the script execution.
+   (contribution by Ludovico Magnocavallo)
   </notes>
+  <filelist>
+   <dir name="/" baseinstalldir="Benchmark">
+     <file role="php">Timer.php</file>
+     <file role="php">Iterate.php</file>
+     <dir name="doc" role="doc">
+       <file>timer_example.php</file>
+     </dir>
+   </dir>
+  </filelist>
  </release>
- <filelist>
-  <dir name="/" baseinstalldir="Benchmark">
-    <file role="php">Timer.php</file>
-    <file role="php">Iterate.php</file>
-  </dir>
- </filelist>
 </package>
