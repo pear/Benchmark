@@ -29,6 +29,7 @@
    <dir name="/" baseinstalldir="Benchmark">
      <file role="php" name="Timer.php"/>
      <file role="php" name="Iterate.php"/>
+     <file role="php" name="Profiler.php"/>
      <dir name="doc" role="doc">
        <file>timer_example.php</file>
      </dir>
