@@ -190,11 +190,11 @@ class Benchmark_Profiler extends PEAR {
             $informations = array();
 
             $informations['time']       = $this->_sections[$section];
-	    if (isset($this->_sections['Global'])) {
-        	$informations['percentage'] = number_format(100 * $this->_sections[$section] / $this->_sections['Global'], 2, '.', '');
-	    } else {
-        	$informations['percentage'] = 'N/A';
-	    }
+            if (isset($this->_sections['Global'])) {
+                $informations['percentage'] = number_format(100 * $this->_sections[$section] / $this->_sections['Global'], 2, '.', '');
+            } else {
+                $informations['percentage'] = 'N/A';
+            }
             $informations['calls']      = $calls;
             $informations['num_calls']  = $this->_numberOfCalls[$section];
             $informations['callers']    = $callers;
@@ -285,24 +285,23 @@ class Benchmark_Profiler extends PEAR {
             }
 
             if ($http) {
-                $out .=
-                    "<tr><td><b>$name</b></td><td>{$values['time']}</td><td>{$values['netto_time']}</td><td>{$values['num_calls']}</td>";
-		if (is_numeric($values['percentage'])) {
-            	    $out .= "<td align=\"right\">{$values['percentage']}%</td>\n";
-		} else {
-            	    $out .= "<td align=\"right\">{$values['percentage']}</td>\n";
-		}
+                $out .= "<tr><td><b>$name</b></td><td>{$values['time']}</td><td>{$values['netto_time']}</td><td>{$values['num_calls']}</td>";
+                if (is_numeric($values['percentage'])) {
+                    $out .= "<td align=\"right\">{$values['percentage']}%</td>\n";
+                } else {
+                    $out .= "<td align=\"right\">{$values['percentage']}</td>\n";
+                }
                 $out .= "<td>$calls_str</td><td>$callers_str</td></tr>";
             } else {
                 $out .= str_pad($name, $this->_maxStringLength, ' ');
                 $out .= str_pad($values['time'], 22);
                 $out .= str_pad($values['netto_time'], 22);
                 $out .= str_pad($values['num_calls'], 22);
-		if (is_numeric($values['percentage'])) {
-		    $out .= str_pad($values['percentage']."%\n", 8, ' ', STR_PAD_LEFT);
-		} else {
-		    $out .= str_pad($values['percentage']."\n", 8, ' ', STR_PAD_LEFT);
-		}
+                if (is_numeric($values['percentage'])) {
+                    $out .= str_pad($values['percentage']."%\n", 8, ' ', STR_PAD_LEFT);
+                } else {
+                    $out .= str_pad($values['percentage']."\n", 8, ' ', STR_PAD_LEFT);
+                }
             }
         }
 
@@ -360,8 +359,8 @@ class Benchmark_Profiler extends PEAR {
             }
         } else {
             if ($name != 'Global') {
-        	$this->raiseError("tried to enter section ".$name." but profiling was not started\n", NULL, PEAR_ERROR_DIE);
-	    }
+                $this->raiseError("tried to enter section ".$name." but profiling was not started\n", NULL, PEAR_ERROR_DIE);
+            }
         }
 
         if (isset($this->_numberOfCalls[$name])) {
@@ -384,9 +383,9 @@ class Benchmark_Profiler extends PEAR {
         $microtime = $this->_getMicrotime();
 
         if (!count($this->_stack)) {
-    	    $this->raiseError("tried to leave section ".$name." but profiling was not started\n", NULL, PEAR_ERROR_DIE);
-	}
-	
+            $this->raiseError("tried to leave section ".$name." but profiling was not started\n", NULL, PEAR_ERROR_DIE);
+        }
+
         $x = array_pop($this->_stack);
 
         if ($x["name"] != $name) {
@@ -399,7 +398,7 @@ class Benchmark_Profiler extends PEAR {
             $this->_sections[$name] = $microtime - $x["time"];
         }
 
-	    $parent = array_pop($this->_stack);
+        $parent = array_pop($this->_stack);
 
       	if (isset($parent)) {
             if (isset($this->_subSectionsTime[$parent['name']])) {
@@ -408,7 +407,7 @@ class Benchmark_Profiler extends PEAR {
                 $this->_subSectionsTime[$parent['name']] = $microtime - $x['time'];
             }
 
-	    array_push($this->_stack, $parent);
+            array_push($this->_stack, $parent);
         }
     }
 
