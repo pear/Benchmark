@@ -124,7 +124,7 @@ class Benchmark_Timer extends PEAR
         $result = $this->getProfiling();
         if ($http) {
             $out = "<table border=1>\n";
-            $out .= "<tr><td>&nbsp;</td><td><b>time index</b></td><td><b>ex time</b></td><td><b>%</b></td></tr>\n";
+            $out .= '<tr><td>&nbsp;</td><td align="center"><b>time index</b></td><td align="center"><b>ex time</b></td><td align="center"><b>%</b></td></tr>'."\n";
         } else {
             $dashes = $out = str_pad("\n", ($this->strlen_max + 52), '-', STR_PAD_LEFT);
             $out .= str_pad('marker', $this->strlen_max);
@@ -136,7 +136,7 @@ class Benchmark_Timer extends PEAR
         foreach ($result as $k => $v) {
             $perc = (($v['diff'] * 100) / $total);
             if ($http) {
-                $out .= "<tr><td><b>" . $v['name'] . "</b></td><td>" . $v['time'] . "</td><td>" . $v['diff'] . "</td><td>" . number_format($perc, 2, '.', '') . "%</td></tr>\n";
+                $out .= "<tr><td><b>" . $v['name'] . "</b></td><td>" . $v['time'] . "</td><td>" . $v['diff'] . "</td><td align=\"right\">" . number_format($perc, 2, '.', '') . "%</td></tr>\n";
             } else {
                 $out .= str_pad($v['name'], $this->strlen_max, ' ');
                 $out .= str_pad($v['time'], 22);
