@@ -22,7 +22,11 @@
     <date>200Y-MM-DD</date>
     <state>devel</state>
     <notes>
-* Fixed bug #1365.
+<![CDATA[
+* Fixed bug #1365: _getOutput() table not XHTML complaint.
+
+* Fixed bug #2727: Output ist not valid XHTML. Patch by Helgi Þormar <helgi@trance.is>.
+]]>
     </notes>
     <filelist>
       <dir name="/" baseinstalldir="Benchmark">

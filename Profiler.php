@@ -215,7 +215,7 @@ class Benchmark_Profiler extends PEAR {
             $http = isset($HTTP_SERVER_VARS['SERVER_PROTOCOL']);
         }
         if ($http) {
-            $out = "<table style=\"border: 1; \">\n";
+            $out = '<table style="border: 1px solid #000000; ">'."\n";
             $out .=
                 '<tr><td>&nbsp;</td><td align="center"><b>total ex. time</b></td>'.
                 '<td align="center"><b>netto ex. time</b></td>'.

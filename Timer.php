@@ -120,7 +120,7 @@ class Benchmark_Timer extends PEAR
         $result = $this->getProfiling();
         $dashes = "";
         if ($http) {
-            $out = "<table border=1>\n";
+            $out = '<table border="1">'."\n";
             $out .= '<tr><td>&nbsp;</td><td align="center"><b>time index</b></td><td align="center"><b>ex time</b></td><td align="center"><b>%</b></td></tr>'."\n";
         } else {
             $dashes = $out = str_pad("\n", ($this->strlen_max + 52), '-', STR_PAD_LEFT);
