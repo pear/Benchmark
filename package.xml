@@ -14,9 +14,9 @@
   </maintainers>
   <license>PHP License</license>
   <release>
-    <version>1.2.2beta1</version>
-    <date>2004-12-22</date>
-    <state>beta</state>
+    <version>1.2.2</version>
+    <date>2005-01-19</date>
+    <state>stable</state>
     <notes>
 <![CDATA[
 * Fixed bug #1365: _getOutput() table not XHTML complaint.
