@@ -3,7 +3,7 @@
 // +------------------------------------------------------------------------+
 // | PEAR :: Benchmark                                                      |
 // +------------------------------------------------------------------------+
-// | Copyright (c) 2001-2004 Sebastian Bergmann <sb@sebastian-bergmann.de>. |
+// | Copyright (c) 2001-2005 Sebastian Bergmann <sb@sebastian-bergmann.de>. |
 // +------------------------------------------------------------------------+
 // | This source file is subject to version 3.00 of the PHP License,        |
 // | that is available at http://www.php.net/license/3_0.txt.               |
@@ -49,7 +49,7 @@ require_once 'PEAR.php';
  *
  * @author    Sebastian Bergmann <sb@sebastian-bergmann.de>
  * @author    Ludovico Magnocavallo <ludo@sumatrasolutions.com>
- * @copyright Copyright &copy; 2002-2004 Sebastian Bergmann <sb@sebastian-bergmann.de>
+ * @copyright Copyright &copy; 2002-2005 Sebastian Bergmann <sb@sebastian-bergmann.de>
  * @license   http://www.php.net/license/3_0.txt The PHP License, Version 3.0
  * @category  Benchmarking
  * @package   Benchmark
