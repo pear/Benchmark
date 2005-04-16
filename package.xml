@@ -6,10 +6,10 @@
   <description>Framework to benchmark PHP scripts or function calls.</description>
   <maintainers>
     <maintainer>
-      <user>sebastian</user>
+      <user>toggg</user>
       <role>lead</role>
-      <name>Sebastian Bergmann</name>
-      <email>sb@sebastian-bergmann.de</email>
+      <name>Bertrand Gugger</name>
+      <email>bertrand@toggg.com</email>
     </maintainer>
   </maintainers>
   <license>PHP License</license>
