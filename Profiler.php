@@ -145,9 +145,9 @@ class Benchmark_Profiler extends PEAR {
      * @access public
      */
     function Benchmark_Profiler($auto = FALSE) {
-        $this->auto = $auto;
+        $this->_auto = $auto;
 
-        if ($this->auto) {
+        if ($this->_auto) {
             $this->start();
         }
 
@@ -160,7 +160,7 @@ class Benchmark_Profiler extends PEAR {
      * @access private
      */
     function _Benchmark_Profiler() {
-        if (isset($this->auto) && $this->auto) {
+        if (isset($this->_auto) && $this->_auto) {
             $this->stop();
             $this->display();
         }
