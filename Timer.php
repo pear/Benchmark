@@ -42,8 +42,9 @@ require_once 'PEAR.php';
  * $timer->setMarker('Marker 1');
  * $timer->stop();
  *
- * $profiling = $timer->getProfiling();
- * print $profiling->getOutput();
+ * $timer->display(); // to output html formated
+ * // AND/OR :
+ * $profiling = $timer->getProfiling(); // get the profiler info as an associative array
  * ?>
  * </code>
  *
