@@ -171,8 +171,10 @@ class Benchmark_Timer extends PEAR {
      * @access public
      */
     function getProfiling() {
-        $i = $total = $temp = 0;
+        $i = $total = 0;
         $result = array();
+        $temp = reset($this->markers);
+        $this->maxStringLength = 0;
 
         foreach ($this->markers as $marker => $time) {
             if (extension_loaded('bcmath')) {
@@ -195,8 +197,9 @@ class Benchmark_Timer extends PEAR {
         }
 
         $result[0]['diff'] = '-';
+        $result[0]['total'] = '-';
         $this->maxStringLength = (strlen('total') > $this->maxStringLength ? strlen('total') : $this->maxStringLength);
-        $this->maxStringLength += 4;
+        $this->maxStringLength += 2;
 
         return $result;
     }
@@ -204,11 +207,12 @@ class Benchmark_Timer extends PEAR {
     /**
      * Return formatted profiling information.
      *
+     * @param  boolean  $showTotal   Optionnaly includes total in output, default no
      * @return string
      * @see    getProfiling()
      * @access public
      */
-    function getOutput()
+    function getOutput($showTotal = FALSE)
     {
         if (function_exists('version_compare') &&
             version_compare(phpversion(), '4.1', 'ge'))
@@ -225,38 +229,59 @@ class Benchmark_Timer extends PEAR {
 
         if ($http) {
             $out = '<table border="1">'."\n";
-            $out .= '<tr><td>&nbsp;</td><td align="center"><b>time index</b></td><td align="center"><b>ex time</b></td><td align="center"><b>%</b></td></tr>'."\n";
+            $out .= '<tr><td>&nbsp;</td><td align="center"><b>time index</b></td><td align="center"><b>ex time</b></td><td align="center"><b>%</b></td>'.
+            ($showTotal ?
+              '<td align="center"><b>elapsed</b></td><td align="center"><b>%</b></td>'
+               : '')."</tr>\n";
         } else {
-            $dashes = $out = str_pad("\n", ($this->maxStringLength + 52), '-', STR_PAD_LEFT);
-            $out .= str_pad('marker', $this->maxStringLength);
-            $out .= str_pad("time index", 22);
-            $out .= str_pad("ex time", 22);
-            $out .= "perct\n";
-            $out .= $dashes;
+            $dashes = $out = str_pad("\n",
+                $this->maxStringLength + ($showTotal ? 70 : 45), '-', STR_PAD_LEFT);
+            $out .= str_pad('marker', $this->maxStringLength) .
+                    str_pad("time index", 22) .
+                    str_pad("ex time", 16) .
+                    str_pad("perct ", 8) .
+                    ($showTotal ? ' '.str_pad("elapsed", 16)."perct" : '')."\n" .
+                    $dashes;
         }
 
         foreach ($result as $k => $v) {
             $perc = (($v['diff'] * 100) / $total);
+            $tperc = (($v['total'] * 100) / $total);
 
             if ($http) {
-                $out .= "<tr><td><b>" . $v['name'] . "</b></td><td>" . $v['time'] . "</td><td>" . $v['diff'] . "</td><td align=\"right\">" . number_format($perc, 2, '.', '') . "%</td></tr>\n";
+                $out .= "<tr><td><b>" . $v['name'] .
+                       "</b></td><td>" . $v['time'] .
+                       "</td><td>" . $v['diff'] .
+                       "</td><td align=\"right\">" . number_format($perc, 2, '.', '') .
+                       "%</td>".
+                       ($showTotal ?
+                            "<td>" . $v['total'] .
+                            "</td><td align=\"right\">" .
+                            number_format($tperc, 2, '.', '') .
+                            "%</td>" : '').
+                       "</tr>\n";
             } else {
-                $out .= str_pad($v['name'], $this->maxStringLength, ' ');
-                $out .= str_pad($v['time'], 22);
-                $out .= str_pad($v['diff'], 22);
-                $out .= str_pad(number_format($perc, 2, '.', '') . "%\n", 8, ' ', STR_PAD_LEFT);
+                $out .= str_pad($v['name'], $this->maxStringLength, ' ') .
+                        str_pad($v['time'], 22) .
+                        str_pad($v['diff'], 14) .
+                        str_pad(number_format($perc, 2, '.', '')."%",8, ' ', STR_PAD_LEFT) .
+                        ($showTotal ? '   '.
+                            str_pad($v['total'], 14) .
+                            str_pad(number_format($tperc, 2, '.', '')."%",
+                                             8, ' ', STR_PAD_LEFT) : '').
+                        "\n";
             }
 
             $out .= $dashes;
         }
 
         if ($http) {
-            $out .= "<tr style='background: silver;'><td><b>total</b></td><td>-</td><td>${total}</td><td>100.00%</td></tr>\n";
+            $out .= "<tr style='background: silver;'><td><b>total</b></td><td>-</td><td>${total}</td><td>100.00%</td>".($showTotal ? "<td>-</td><td>-</td>" : "")."</tr>\n";
             $out .= "</table>\n";
         } else {
             $out .= str_pad('total', $this->maxStringLength);
             $out .= str_pad('-', 22);
-            $out .= str_pad($total, 22);
+            $out .= str_pad($total, 15);
             $out .= "100.00%\n";
             $out .= $dashes;
         }
@@ -267,11 +292,12 @@ class Benchmark_Timer extends PEAR {
     /**
      * Prints the information returned by getOutput().
      *
+     * @param  boolean  $showTotal   Optionnaly includes total in output, default no
      * @see    getOutput()
      * @access public
      */
-    function display() {
-        print $this->getOutput();
+    function display($showTotal = FALSE) {
+        print $this->getOutput($showTotal);
     }
 
     /**
