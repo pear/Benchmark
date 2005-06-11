@@ -14,17 +14,24 @@
   </maintainers>
   <license>PHP License</license>
   <release>
-    <version>1.2.2</version>
-    <date>2005-01-19</date>
+    <version>1.2.3</version>
+    <date>2005-06-11</date>
     <state>stable</state>
     <notes>
-<![CDATA[
-* Fixed bug #1365: _getOutput() table not XHTML complaint.
-
-* Fixed bug #2727: Output ist not valid XHTML. Patch by Helgi &THORN;ormar <helgi@trance.is>.
-
-* Fixed bug #2295: Timer.php: undefined index "Stop" on line 208.
-]]>
+Sebastian Bergman devolves the maintainance to Bertrand Gugger on 04/15/2005
+* bug #3620 CRITICAL: non-ISO-8859-1 characters in package.xml must be entitied
+* Profiler
+ + fix comments and fix bug #3369 Profiler : Manual mode generates automatic output
+ + fix bug #2957 zero devision when calling getAllSectionsInformations
+ + CS/WS fixes
+ + Typo in private var _auto use (thanks sascha Eissler)
+* Timer
+ + Example 2 corrected
+ + Bug #4346 : wrong totals, also potential bug if several sessions (display shift)
+ + The output has been extented to optionnaly display the totals.
+* Iterate
+ + Request #1160  	Feature Addition: Simple Output on Benchmark_Iterate
+ + $GLOBALS[] instead of global $...
     </notes>
     <filelist>
       <dir name="/" baseinstalldir="Benchmark">
@@ -42,6 +49,20 @@
     </deps>
   </release>
   <changelog>
+    <release>
+      <version>1.2.2</version>
+      <date>2005-01-19</date>
+      <state>stable</state>
+      <notes>
+<![CDATA[
+* Fixed bug #1365: _getOutput() table not XHTML complaint.
+
+* Fixed bug #2727: Output ist not valid XHTML. Patch by Helgi &THORN;ormar <helgi@trance.is>.
+
+* Fixed bug #2295: Timer.php: undefined index "Stop" on line 208.
+]]>
+      </notes>
+    </release>
     <release>
       <version>1.2.1</version>
       <date>2003-05-20</date>
