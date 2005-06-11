@@ -103,12 +103,12 @@ class Benchmark_Iterate extends Benchmark_Timer {
             $function_name = explode('->', $function_name);
             $objectname = $function_name[0];
 
-            global ${$objectname};
+            $object = $GLOBALS[$objectname];
             $objectmethod = $function_name[1];
 
             for ($i = 1; $i <= $iterations; $i++) {
                 $this->setMarker('start_' . $i);
-                call_user_func_array(array(${$objectname}, $function_name[1]), $arguments);
+                call_user_func_array(array($object, $function_name[1]), $arguments);
                 $this->setMarker('end_' . $i);
             }
 
@@ -132,7 +132,7 @@ class Benchmark_Iterate extends Benchmark_Timer {
      * @return array
      * @access public
      */
-    function get() {
+    function get($simple_output = false) {
         $result = array();
         $total  = 0;
 
@@ -147,7 +147,9 @@ class Benchmark_Iterate extends Benchmark_Timer {
                 $total = $total + $time;
             }
 
-            $result[$i] = $time;
+            if (!$simple_output) {
+                $result[$i] = $time;
+            }
         }
 
         if (extension_loaded('bcmath')) {
