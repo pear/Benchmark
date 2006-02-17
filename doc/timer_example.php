@@ -16,4 +16,3 @@ echo "Elapsed time between Start and Mark1: " .
 wait(50);
 $timer->stop();
 $timer->display();
-?>

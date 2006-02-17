@@ -3,7 +3,7 @@
 // +----------------------------------------------------------------------+
 // | PEAR :: Benchmark                                                    |
 // +----------------------------------------------------------------------+
-// | Copyright (c) 2002-2005 Matthias Englert <Matthias.Englert@gmx.de>.  |
+// | Copyright (c) 2002-2006 Matthias Englert <Matthias.Englert@gmx.de>.  |
 // +----------------------------------------------------------------------+
 // | This source file is subject to the New BSD license, That is bundled  |
 // | with this package in the file LICENSE, and is available through      |
@@ -425,4 +425,3 @@ class Benchmark_Profiler extends PEAR {
         return $microtime[1] . substr($microtime[0], 1);
     }
 }
-?>

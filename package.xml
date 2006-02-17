@@ -14,12 +14,12 @@
   </maintainers>
   <license>New BSD</license>
   <release>
-    <version>1.2.4</version>
-    <date>2005-11-06</date>
+    <version>1.2.5</version>
+    <date>2006-02-17</date>
     <state>stable</state>
     <notes>
-- Change licence to the new BSD License
-  (see http://www.opensource.org/licenses/bsd-license.php)
+- Bumped to 2006
+- Put out out nasty "?&gt;" end script tags
     </notes>
     <filelist>
       <dir name="/" baseinstalldir="Benchmark">
@@ -38,6 +38,15 @@
     </deps>
   </release>
   <changelog>
+  <release>
+    <version>1.2.4</version>
+    <date>2005-11-05</date>
+    <state>stable</state>
+    <notes>
+- Change licence to the new BSD License
+  (see http://www.opensource.org/licenses/bsd-license.php)
+    </notes>
+   </release>
    <release>
      <version>1.2.3</version>
      <date>2005-06-11</date>

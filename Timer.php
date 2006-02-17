@@ -3,7 +3,7 @@
 // +------------------------------------------------------------------------+
 // | PEAR :: Benchmark                                                      |
 // +------------------------------------------------------------------------+
-// | Copyright (c) 2001-2005 Sebastian Bergmann <sb@sebastian-bergmann.de>. |
+// | Copyright (c) 2001-2006 Sebastian Bergmann <sb@sebastian-bergmann.de>. |
 // +------------------------------------------------------------------------+
 // | This source file is subject to the New BSD license, That is bundled    |
 // | with this package in the file LICENSE, and is available through        |
@@ -314,4 +314,3 @@ class Benchmark_Timer extends PEAR {
         return $microtime[1] . substr($microtime[0], 1);
     }
 }
-?>
