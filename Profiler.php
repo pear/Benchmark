@@ -232,19 +232,22 @@ class Benchmark_Profiler extends PEAR {
     /**
      * Returns formatted profiling information.
      *
+     * @param  string output format (auto, plain or html), default auto
      * @see    display()
      * @access private
      */
-    function _getOutput() {
-        if (function_exists('version_compare') &&
-            version_compare(phpversion(), '4.1', 'ge')) {
-            $http = isset($_SERVER['SERVER_PROTOCOL']);
-        } else {
-            global $HTTP_SERVER_VARS;
-            $http = isset($HTTP_SERVER_VARS['SERVER_PROTOCOL']);
+    function _getOutput($format) {
+        if ($format == 'auto') {
+            if (function_exists('version_compare') &&
+                version_compare(phpversion(), '4.1', 'ge')) {
+                $format = isset($_SERVER['SERVER_PROTOCOL']) ? 'html' : 'plain';
+            } else {
+                global $HTTP_SERVER_VARS;
+                $format = isset($HTTP_SERVER_VARS['SERVER_PROTOCOL']) ? 'html' : 'plain';
+            }
         }
 
-        if ($http) {
+        if ($format == 'html') {
             $out = '<table style="border: 1px solid #000000; ">'."\n";
             $out .=
                 '<tr><td>&nbsp;</td><td align="center"><b>total ex. time</b></td>'.
@@ -286,7 +289,7 @@ class Benchmark_Profiler extends PEAR {
                 $callers_str .= "$key ($val)";
             }
 
-            if ($http) {
+            if ($format == 'html') {
                 $out .= "<tr><td><b>$name</b></td><td>{$values['time']}</td><td>{$values['netto_time']}</td><td>{$values['num_calls']}</td>";
                 if (is_numeric($values['percentage'])) {
                     $out .= "<td align=\"right\">{$values['percentage']}%</td>\n";
@@ -295,7 +298,7 @@ class Benchmark_Profiler extends PEAR {
                 }
                 $out .= "<td>$calls_str</td><td>$callers_str</td></tr>";
             } else {
-                $out .= str_pad($name, $this->_maxStringLength, ' ');
+                $out .= str_pad($name, $this->_maxStringLength);
                 $out .= str_pad($values['time'], 22);
                 $out .= str_pad($values['netto_time'], 22);
                 $out .= str_pad($values['num_calls'], 22);
@@ -313,10 +316,11 @@ class Benchmark_Profiler extends PEAR {
     /**
      * Returns formatted profiling information.
      *
+     * @param  string output format (auto, plain or html), default auto
      * @access public
      */
-    function display() {
-        echo $this->_getOutput();
+    function display($format = 'auto') {
+        echo $this->_getOutput($format);
     }
 
     /**

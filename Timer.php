@@ -210,26 +210,28 @@ class Benchmark_Timer extends PEAR {
      * Return formatted profiling information.
      *
      * @param  boolean  $showTotal   Optionnaly includes total in output, default no
+     * @param  string  $format   output format (auto, plain or html), default auto
      * @return string
      * @see    getProfiling()
      * @access public
      */
-    function getOutput($showTotal = FALSE)
-    {
-        if (function_exists('version_compare') &&
-            version_compare(phpversion(), '4.1', 'ge'))
-        {
-            $http = isset($_SERVER['SERVER_PROTOCOL']);
-        } else {
-            global $HTTP_SERVER_VARS;
-            $http = isset($HTTP_SERVER_VARS['SERVER_PROTOCOL']);
+    function getOutput($showTotal = FALSE, $format = 'auto') {
+        if ($format == 'auto') {
+            if (function_exists('version_compare') &&
+                version_compare(phpversion(), '4.1', 'ge'))
+            {
+                $format = isset($_SERVER['SERVER_PROTOCOL']) ? 'html' : 'plain';
+            } else {
+                global $HTTP_SERVER_VARS;
+                $format = isset($HTTP_SERVER_VARS['SERVER_PROTOCOL']) ? 'html' : 'plain';
+	    }
         }
 
         $total  = $this->TimeElapsed();
         $result = $this->getProfiling();
         $dashes = '';
 
-        if ($http) {
+        if ($format == 'html') {
             $out = '<table border="1">'."\n";
             $out .= '<tr><td>&nbsp;</td><td align="center"><b>time index</b></td><td align="center"><b>ex time</b></td><td align="center"><b>%</b></td>'.
             ($showTotal ?
@@ -250,7 +252,7 @@ class Benchmark_Timer extends PEAR {
             $perc = (($v['diff'] * 100) / $total);
             $tperc = (($v['total'] * 100) / $total);
 
-            if ($http) {
+            if ($format == 'html') {
                 $out .= "<tr><td><b>" . $v['name'] .
                        "</b></td><td>" . $v['time'] .
                        "</td><td>" . $v['diff'] .
@@ -277,7 +279,7 @@ class Benchmark_Timer extends PEAR {
             $out .= $dashes;
         }
 
-        if ($http) {
+        if ($format == 'html') {
             $out .= "<tr style='background: silver;'><td><b>total</b></td><td>-</td><td>${total}</td><td>100.00%</td>".($showTotal ? "<td>-</td><td>-</td>" : "")."</tr>\n";
             $out .= "</table>\n";
         } else {
@@ -295,11 +297,12 @@ class Benchmark_Timer extends PEAR {
      * Prints the information returned by getOutput().
      *
      * @param  boolean  $showTotal   Optionnaly includes total in output, default no
+     * @param  string  $format   output format (auto, plain or html), default auto
      * @see    getOutput()
      * @access public
      */
-    function display($showTotal = FALSE) {
-        print $this->getOutput($showTotal);
+    function display($showTotal = FALSE, $format = 'auto') {
+        print $this->getOutput($showTotal, $format);
     }
 
     /**
