@@ -237,6 +237,20 @@ class Benchmark_Profiler extends PEAR {
      * @access private
      */
     function _getOutput($format) {
+        
+        /* Quickly find out the maximun length: Ineffecient, but will do for now! */
+        $informations = $this->getAllSectionsInformations();
+        $names = array_keys($informations);
+        
+        $maxLength = 0;
+        foreach ($names as $name)
+        {
+            if ($maxLength < strlen($name)) {
+                $maxLength = strlen($name);
+            }
+        }
+        $this->_maxStringLength = $maxLength;
+
         if ($format == 'auto') {
             if (function_exists('version_compare') &&
                 version_compare(phpversion(), '4.1', 'ge')) {
@@ -256,17 +270,15 @@ class Benchmark_Profiler extends PEAR {
                 '<td align="center"><b>calls</b></td><td align="center"><b>callers</b></td></tr>'.
                 "\n";
         } else {
-            $dashes = $out = str_pad("\n", ($this->_maxStringLength + 52), '-', STR_PAD_LEFT);
-            $out .= str_pad('section', $this->_maxStringLength);
-            $out .= str_pad("total ex time", 22);
-            $out .= str_pad("netto ex time", 22);
-            $out .= str_pad("#calls", 22);
-            $out .= "perct\n";
+            $dashes = $out = str_pad("\n", ($this->_maxStringLength + 75), '-', STR_PAD_LEFT);
+            $out .= str_pad('Section', $this->_maxStringLength + 10);
+            $out .= str_pad("Total Ex Time", 22);
+            $out .= str_pad("Netto Ex Time", 22);
+            $out .= str_pad("#Calls", 10);
+            $out .= "Percentage\n";
             $out .= $dashes;
         }
-
-        $informations = $this->getAllSectionsInformations();
-
+           
         foreach($informations as $name => $values) {
             $percentage = $values['percentage'];
             $calls_str = "";
@@ -298,10 +310,10 @@ class Benchmark_Profiler extends PEAR {
                 }
                 $out .= "<td>$calls_str</td><td>$callers_str</td></tr>";
             } else {
-                $out .= str_pad($name, $this->_maxStringLength);
+                $out .= str_pad($name, $this->_maxStringLength + 10);
                 $out .= str_pad($values['time'], 22);
                 $out .= str_pad($values['netto_time'], 22);
-                $out .= str_pad($values['num_calls'], 22);
+                $out .= str_pad($values['num_calls'], 10);
                 if (is_numeric($values['percentage'])) {
                     $out .= str_pad($values['percentage']."%\n", 8, ' ', STR_PAD_LEFT);
                 } else {
@@ -309,8 +321,12 @@ class Benchmark_Profiler extends PEAR {
                 }
             }
         }
-
-        return $out . '</table>';
+        
+        if ($format == 'html') {
+            return $out . '</table>';
+        } else {
+            return $out;
+        }
     }
 
     /**

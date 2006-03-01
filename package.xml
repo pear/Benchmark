@@ -6,6 +6,12 @@
   <description>Framework to benchmark PHP scripts or function calls.</description>
   <maintainers>
     <maintainer>
+      <user>anant</user>
+      <role>lead</role>
+      <name>Anant Narayanan</name>
+      <email>anant@kix.in</email>
+    </maintainer>
+    <maintainer>
       <user>toggg</user>
       <role>lead</role>
       <name>Bertrand Gugger</name>
@@ -14,12 +20,13 @@
   </maintainers>
   <license>New BSD</license>
   <release>
-    <version>1.2.5</version>
-    <date>2006-02-17</date>
+    <version>1.2.6</version>
+    <date>2006-03-02</date>
     <state>stable</state>
     <notes>
-- Bumped to 2006
-- Put out out nasty "?&gt;" end script tags
+- Fixed extra table tag for text input
+- Formatted text output properly (bug #6972)
+- Added Anant Narayanan as maintainer
     </notes>
     <filelist>
       <dir name="/" baseinstalldir="Benchmark">
@@ -39,14 +46,23 @@
   </release>
   <changelog>
   <release>
-    <version>1.2.4</version>
-    <date>2005-11-05</date>
-    <state>stable</state>
-    <notes>
+   <version>1.2.6</version>
+   <date>2006-03-02</date>
+   <state>stable</state>
+   <notes>
+- Fixed extra table tag for text input
+- Formatted text output properly (bug #6972)
+   </notes>
+  </release>
+  <release>
+   <version>1.2.4</version>
+   <date>2005-11-05</date>
+   <state>stable</state>
+   <notes>
 - Change licence to the new BSD License
   (see http://www.opensource.org/licenses/bsd-license.php)
-    </notes>
-   </release>
+   </notes>
+  </release>
    <release>
      <version>1.2.3</version>
      <date>2005-06-11</date>
