@@ -24,9 +24,9 @@
     <date>2006-03-02</date>
     <state>stable</state>
     <notes>
-- Fixed extra table tag for text input
-- Formatted text output properly (bug #6972)
-- Added Anant Narayanan as maintainer
+     - Fixed extra table tag for text input
+     - Formatted text output properly (bug #6972)
+     - Added Anant Narayanan as maintainer
     </notes>
     <filelist>
       <dir name="/" baseinstalldir="Benchmark">
