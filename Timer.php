@@ -153,11 +153,13 @@ class Benchmark_Timer extends PEAR {
         if ($end == 'Stop' && !isset($this->markers['Stop'])) {
             $this->markers['Stop'] = $this->_getMicrotime();
         }
+        $end = isset($this->markers[$end]) ? $this->markers[$end] : 0;
+        $start = isset($this->markers[$start]) ? $this->markers[$start] : 0;
 
         if (extension_loaded('bcmath')) {
-            return bcsub($this->markers[$end], $this->markers[$start], 6);
+            return bcsub($end, $start, 6);
         } else {
-            return $this->markers[$end] - $this->markers[$start];
+            return $end - $start;
         }
     }
 
