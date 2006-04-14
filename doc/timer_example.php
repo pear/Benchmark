@@ -1,5 +1,5 @@
 <?php
-require '../Timer.php';
+require 'Benchmark/Timer.php';
 
 function wait($amount) {
     for ($i=0; $i < $amount; $i++) {
