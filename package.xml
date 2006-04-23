@@ -11,12 +11,6 @@
       <name>Anant Narayanan</name>
       <email>anant@kix.in</email>
     </maintainer>
-    <maintainer>
-      <user>toggg</user>
-      <role>lead</role>
-      <name>Bertrand Gugger</name>
-      <email>bertrand@toggg.com</email>
-    </maintainer>
   </maintainers>
   <license>New BSD</license>
   <release>
