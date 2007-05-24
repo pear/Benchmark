@@ -157,11 +157,11 @@ class Benchmark_Profiler extends PEAR {
     }
 
     /**
-     * Destructor, stops profiling recording
+     * Close method, stop profiling recording and display output.
      *
-     * @access private
+     * @access public
      */
-    function _Benchmark_Profiler() {
+    function close() {
         if (isset($this->_auto) && $this->_auto) {
             $this->stop();
             $this->display();

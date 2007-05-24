@@ -99,11 +99,11 @@ class Benchmark_Timer extends PEAR {
     }
 
     /**
-     * Destructor.
+     * Close method. Stop timer and display output.
      *
-     * @access private
+     * @access public
      */
-    function _Benchmark_Timer() {
+    function close() {
         if ($this->auto) {
             $this->stop();
             $this->display();
