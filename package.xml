@@ -4,18 +4,20 @@
   <name>Benchmark</name>
   <summary>Framework to benchmark PHP scripts or function calls.</summary>
   <description>Framework to benchmark PHP scripts or function calls.</description>
-  <lead>
-    <user>anant</user>
-    <name>Anant Narayanan</name>
-    <email>anant@kix.in</email>
-    <active>yes</active>
-  </lead>
-  <lead>
-    <user>toggg</user>
-    <name>bertrand Gugger</name>
-    <email>toggg at php dot net</email>
-    <active>yes</active>
-  </lead>
+  <maintainers>
+	<maintainer>
+      <user>anant</user>
+      <name>Anant Narayanan</name>
+      <email>anant@kix.in</email>
+	  <active>yes</active>
+	</maintainer>
+    <maintainer>
+      <user>toggg</user>
+	  <name>bertrand Gugger</name>
+      <email>toggg at php dot net</email>
+	  <active>yes</active>
+    </maintainer>
+  </maintainers>
   <license>New BSD</license>
   <release>
     <version>1.2.6</version>
@@ -32,10 +34,11 @@
         <dir name="doc" role="doc">
           <file>timer_example.php</file>
         </dir>
-
-        <file role="php" name="Timer.php"/>
-        <file role="php" name="Iterate.php"/>
-        <file role="php" name="Profiler.php"/>
+		<dir name="Benchmark" role="php">
+	      <file role="php" name="Timer.php"/>
+    	  <file role="php" name="Iterate.php"/>
+          <file role="php" name="Profiler.php"/>
+		</dir>
       </dir>
     </filelist>
     <deps>
