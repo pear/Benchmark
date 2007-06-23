@@ -14,26 +14,22 @@ http://pear.php.net/dtd/package-2.0.xsd">
   <email>anant@kix.in</email>
   <active>yes</active>
  </lead>
- <lead>
-  <name>bertrand Gugger</name>
-  <user>toggg</user>
-  <email>toggg at php dot net</email>
-  <active>yes</active>
- </lead>
- <date>2007-05-24</date>
- <time>10:46:18</time>
+ <date>2007-06-23</date>
+ <time>06:33:00</time>
  <version>
-  <release>1.2.6</release>
-  <api>1.2.6</api>
+  <release>1.2.7</release>
+  <api>1.2.7</api>
  </version>
  <stability>
   <release>stable</release>
   <api>stable</api>
  </stability>
  <license>New BSD</license>
- <notes>- Fixed extra table tag for text input
-- Formatted text output properly (bug #6972)
-- Added Anant Narayanan as maintainer
+ <notes>- Make output XHTML compliant (bug #1365)
+- Fix unknown index error in timeElapsed (bug #2295)
+- Fix class destructor behaviour on PHP 4 (bug #8748)
+- Fix documentation strings, add user docs.
+- Migrated to package2.xml.
  </notes>
  <contents>
   <dir name="/">
@@ -67,6 +63,24 @@ http://pear.php.net/dtd/package-2.0.xsd">
  <changelog>
   <release>
    <version>
+    <release>1.2.7</release>
+    <api>1.2.7</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2007-06-23</date>
+   <license>New BSD</license>
+   <notes>- Make output XHTML compliant (bug #1365)
+- Fix unknown index error in timeElapsed (bug #2295)
+- Fix class destructor behaviour on PHP 4 (bug #8748)
+- Fix documentation strings, add user docs.
+- Migrated to package2.xml.
+   </notes>
+  </release>
+  <release>
+   <version>
     <release>1.2.6</release>
     <api>1.2.6</api>
    </version>
@@ -78,7 +92,6 @@ http://pear.php.net/dtd/package-2.0.xsd">
    <license>New BSD</license>
    <notes>- Fixed extra table tag for text input
 - Formatted text output properly (bug #6972)
-   
    </notes>
   </release>
   <release>
@@ -94,7 +107,6 @@ http://pear.php.net/dtd/package-2.0.xsd">
    <license>New BSD</license>
    <notes>- Change licence to the new BSD License
   (see http://www.opensource.org/licenses/bsd-license.php)
-   
    </notes>
   </release>
   <release>
@@ -122,7 +134,6 @@ http://pear.php.net/dtd/package-2.0.xsd">
 * Iterate
  + Request #1160  	Feature Addition: Simple Output on Benchmark_Iterate
  + $GLOBALS[] instead of global $...
-     
    </notes>
   </release>
   <release>
@@ -137,12 +148,8 @@ http://pear.php.net/dtd/package-2.0.xsd">
    <date>2005-01-19</date>
    <license>New BSD</license>
    <notes>* Fixed bug #1365: _getOutput() table not XHTML complaint.
-
 * Fixed bug #2727: Output ist not valid XHTML. Patch by Helgi &amp;THORN;ormar &lt;helgi@trance.is&gt;.
-
 * Fixed bug #2295: Timer.php: undefined index &quot;Stop&quot; on line 208.
-
-      
    </notes>
   </release>
   <release>
@@ -157,11 +164,8 @@ http://pear.php.net/dtd/package-2.0.xsd">
    <date>2003-05-20</date>
    <license>New BSD</license>
    <notes>+ Profiler: Added calculation of netto execution time of sections.
-
 + Profiler: Optional output to an array instead of screen. (Contributed by Jean-Marc Fontaine)
-
 * Profiler: Fixed typos.
-      
    </notes>
   </release>
   <release>
@@ -176,7 +180,6 @@ http://pear.php.net/dtd/package-2.0.xsd">
    <date>2002-09-25</date>
    <license>New BSD</license>
    <notes>+ Added Profiler class. (Contribution by Matthias Englert)
-      
    </notes>
   </release>
   <release>
@@ -193,7 +196,6 @@ http://pear.php.net/dtd/package-2.0.xsd">
    <notes>+ Added getOutput() to print the results in human readable format and display() to show it. This functions will automatically detect the environment to select HTML or text output.
 
 + Added a new parameter $auto to constructor. When TRUE is passed, the results will be output automatically at the end of the script execution. (Contribution by Ludovico Magnocavallo)
-      
    </notes>
   </release>
  </changelog>
