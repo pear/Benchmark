@@ -11,22 +11,18 @@
       <email>anant@kix.in</email>
 	  <active>yes</active>
 	</maintainer>
-    <maintainer>
-      <user>toggg</user>
-	  <name>bertrand Gugger</name>
-      <email>toggg at php dot net</email>
-	  <active>yes</active>
-    </maintainer>
   </maintainers>
   <license>New BSD</license>
   <release>
-    <version>1.2.6</version>
-    <date>2006-03-02</date>
+    <version>1.2.7</version>
+    <date>2007-06-23</date>
     <state>stable</state>
-    <notes>
-     - Fixed extra table tag for text input
-     - Formatted text output properly (bug #6972)
-     - Added Anant Narayanan as maintainer
+	<notes>
+		- Make output XHTML compliant (bug #1365)
+		- Fix unknown index error in timeElapsed (bug #2295)
+		- Fix class destructor behaviour on PHP 4 (bug #8748)
+		- Fix documentation strings, add user docs.
+		- Migrated to package2.xml.
     </notes>
     <filelist>
       <dir name="/" baseinstalldir="Benchmark">
@@ -46,6 +42,18 @@
     </deps>
   </release>
   <changelog>
+  <release>
+   <version>1.2.7</version>
+   <date>2007-06-23</date>
+   <state>stable</state>
+   <notes>
+- Make output XHTML compliant (bug #1365)
+- Fix unknown index error in timeElapsed (bug #2295)
+- Fix class destructor behaviour on PHP 4 (bug #8748)
+- Fix documentation strings, add user docs.
+- Migrated to package2.xml.
+   </notes>
+  </release>
   <release>
    <version>1.2.6</version>
    <date>2006-03-02</date>
