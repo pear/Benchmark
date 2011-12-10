@@ -107,12 +107,12 @@ class Benchmark_Iterate extends Benchmark_Timer
         $iterations    = array_shift($arguments);
         $function_name = array_shift($arguments);
 
-        if (strstr($function_name, '::')) {
+        if (is_string($function_name) && strstr($function_name, '::')) {
             $function_name = explode('::', $function_name);
             $objectmethod  = $function_name[1];
         }
 
-        if (strstr($function_name, '->')) {
+        if (is_string($function_name) && strstr($function_name, '->')) {
             list($objectname, $objectmethod) = explode('->', $function_name);
 
             $object = $GLOBALS[$objectname];
