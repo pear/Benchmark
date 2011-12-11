@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.9.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.9.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
  <name>Benchmark</name>
  <channel>pear.php.net</channel>
  <summary>Framework to benchmark PHP scripts or function calls.</summary>
@@ -10,10 +10,10 @@
   <email>anant@kix.in</email>
   <active>yes</active>
  </lead>
- <date>2010-10-25</date>
- <time>20:21:12</time>
+ <date>2011-12-11</date>
+ <time>22:31:25</time>
  <version>
-  <release>1.2.8</release>
+  <release>1.2.9</release>
   <api>1.2.7</api>
  </version>
  <stability>
@@ -22,17 +22,18 @@
  </stability>
  <license>New BSD</license>
  <notes>
-QA release
-Doc Bug #8596 	Called stable without user doc
-Request #14777 	Improve PHPCS results
+QA Release
+Bug #17204 Benchmark_Iterate::run trigger an error of type E_NOTICE
+Bug #18045 Profiler::enterSection is broken
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
-   <file baseinstalldir="/" md5sum="7ae616637b2c97d544fc2fd8b6ee5147" name="Benchmark/Iterate.php" role="php" />
-   <file baseinstalldir="/" md5sum="05c50f105a12e7ef0ad43417d2aa39ad" name="Benchmark/Profiler.php" role="php" />
-   <file baseinstalldir="/" md5sum="bf3e1ed290227e4c1ef9afd99a202728" name="Benchmark/Timer.php" role="php" />
-   <file baseinstalldir="/" md5sum="8609ec8ca4665ca6ccb147566c69985a" name="doc/timer_example.php" role="doc" />
+   <file baseinstalldir="/" md5sum="a9662e76510c07812f1a03a69240db72" name="Benchmark/Iterate.php" role="php" />
+   <file baseinstalldir="/" md5sum="d2e1fd0615e2b737ab3a58838316d2b4" name="Benchmark/Profiler.php" role="php" />
+   <file baseinstalldir="/" md5sum="dc7a008656e54e2b3496b088dab8af68" name="Benchmark/Timer.php" role="php" />
+   <file baseinstalldir="/" md5sum="09e822095e9bfdaa3a9f7190e42690f0" name="doc/timer_example.php" role="doc" />
    <file baseinstalldir="/" md5sum="f8790e48b597dff12a643e08e9be3fab" name="LICENSE" role="doc" />
+   <file baseinstalldir="/" md5sum="ccb464a9ef38105c2ca7234d0c8559b5" name="README" role="data" />
   </dir>
  </contents>
  <dependencies>
@@ -212,6 +213,23 @@ Sebastian Bergman devolves the maintainance to Bertrand Gugger on 04/15/2005
 QA release
 Doc Bug #8596 	Called stable without user doc
 Request #14777 	Improve PHPCS results
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.2.9</release>
+    <api>1.2.7</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2011-12-11</date>
+   <license>New BSD</license>
+   <notes>
+QA Release
+Bug #17204 Benchmark_Iterate::run trigger an error of type E_NOTICE
+Bug #18045 Profiler::enterSection is broken
    </notes>
   </release>
  </changelog>
