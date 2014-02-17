@@ -1,0 +1,31 @@
+{
+    "authors": [
+        {
+            "email": "anant@kix.in",
+            "name": "Anant Narayanan",
+            "role": "Lead"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "./"
+        ]
+    },
+    "description": "More info available on: http://pear.php.net/package/Benchmark",
+    "license": "New BSD",
+    "name": "pear/benchmark",
+    "support": {
+        "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Benchmark",
+        "source": "https://github.com/pear/Benchmark"
+    },
+    "type": "library",
+    "suggest": {
+        "ext-bcmath": "May require the bcmath PHP extension"
+    },
+    "require": {
+        "pear/pear_exception": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    }
+}
